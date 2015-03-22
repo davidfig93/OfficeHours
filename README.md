@@ -8,7 +8,7 @@ When navigating to the application, this is the page that first opens up. The ma
 
 ### Admin
 
-When logged in as admin user, youa re directed to the admin page. The page includes a series of fields to fill out to add visitors to the queues. The page also includes all of the current staff members in the database with the ability to show them or hide them from the display view. The admin page also includes a full view of all of the staff members lists and the ability to check them off the lists.
+When logged in as admin user, you are directed to the admin page. The page includes a series of fields to fill out to add visitors to the queues. The page also includes all of the current staff members in the database with the ability to show them or hide them from the display view. The admin page also includes a full view of all of the staff members lists and the ability to check them off the lists.
 
 ### Staff
 
@@ -16,7 +16,7 @@ When logged in as admin user, youa re directed to the admin page. The page inclu
 The default page when logging in as a staff member is the staff queues page. This page has all of the staff members' lists with the comments logged from the admin page as well as the ability to mark people as seen on all lists.
 
 #### History
-The secondary page available to staff members is the history page which shows all entries ever logged. It contains a table with a search field that automatically filters all columns. All columns on this page are sortable in ascending and descendig orders by clicking the column headers.
+The secondary page available to staff members is the history page which shows all entries ever logged. It contains a table with a search field that automatically filters all columns. All columns on this page are sortable in ascending and descendig order by clicking the column headers.
 
 
 ###### Tools
