@@ -1,0 +1,22 @@
+<!-- Header -->
+<div class='header-container'>
+<nav class='navbar navbar-default' role='navigation'>
+  <div class='container-fluid'>
+    <div class='header'>
+      <div class='navbar-brand center'>
+        Office Hours
+      </div>
+      <div class='btn-group'>
+      	<label ui-sref='.queues' class='btn btn-primary navbar-btn'>Queues</label>
+      	<label ui-sref='.history' class='btn btn-primary navbar-btn'>History</label>
+      </div>
+      <button type='button' class='btn btn-default navbar-btn pull-right' ng-click='logout()'>Logout</button>
+    </div>
+    
+  </div>
+</nav> 
+</div>
+<!-- End of Header -->
+
+<div ui-view>
+</div>

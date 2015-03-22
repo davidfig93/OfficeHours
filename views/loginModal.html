@@ -1,0 +1,23 @@
+<div class="modal fade in bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="false" >
+  <a ui-sref='home' id='modal-background' tabindex="-1"></a>
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+    <div class="modal-container">
+    	<a ui-sref='home' tabindex="-2"><span class="glyphicon glyphicon-remove modal-exit red" aria-hidden="true"></span></a>
+      <form class="form-horizontal" name="form" ng-submit="attemptLogin()" novalidate>
+			  <h2 class="form-header">Please Sign In</h2>
+			  <div ng-show="displayErrorMessage" class="alert alert-danger" role="alert">
+				  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				  <span class="sr-only">Login Failed:</span>
+				  Your username and password were not recognized.
+				</div>
+			  <label for="username" class="">Username</label>
+			  <input type="text" name="username" class="form-control" placeholder="Username" ng-model="login.username" tabindex="1" required>
+			  <label for="password" class="">Password</label>
+			  <input type="password" name="password" class="form-control" placeholder="Password" ng-model="login.password" tabindex="2" required><br />
+			  <button ng-disabled='form.$invalid' class="btn btn-primary btn-block" tabindex="3">Sign in</button>
+			</form>
+    </div>
+    </div>
+  </div>
+</div>

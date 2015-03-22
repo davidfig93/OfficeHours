@@ -1,0 +1,20 @@
+<div controller='StaffQueuesCtrl'>
+<div class='row' ng-repeat='queues in rowsOfQueues'>
+	<div ng-repeat='queue in queues' class='col-md-3'>
+	  <div class='panel panel-default'>
+	    <div class='panel-heading'>
+	      <h3 class='panel-title'>{{queue.StaffName}}</h3>
+	    </div>
+	    <div class='panel-body'>
+	      <ul class='list-group'>
+	        <li  class='empty-row list-group-item' ng-if='queue.Students.length == 0'> - </li>
+	        <li class='list-group-item' ng-repeat='student in queue.Students track by $index'>
+	        <h4><a href='' ng-click='removeStudent(student)'><span class='glyphicon glyphicon-ok red' aria-hidden='true'></span></a>{{student.StudentName}}</h4>
+	        {{student.Comments}}
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+</div>
+</div>

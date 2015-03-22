@@ -1,0 +1,76 @@
+/* Modal Style */
+.modal {
+	display:block;
+	background: rgba(255, 255, 255, .3);
+}
+
+.modal-container {
+	padding:20px;
+	margin: auto;
+}
+
+.modal-dialog {
+	margin:80px auto;
+	width: 350px;
+}
+
+.modal-exit {
+	position: absolute;
+	top:20px;
+	right:20px;
+}
+
+#modal-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* Form Style */
+.control-label {
+	font-size: 15px;
+}
+
+#history-search .form-control, #admin-form .form-control {
+	border-radius: 5px;
+}
+
+#history-search {
+	text-align: center;
+}
+
+
+/* Header Style */
+.header-container {
+	padding-top: 20px;
+	margin: auto;
+}
+
+
+/* Generic Style */
+h2
+ {
+	margin-top: 10.5px;
+}
+
+.glyphicon {
+	margin-right: 5px;
+}
+
+
+/* Queues Styles */
+.list-group {
+    margin-bottom: 0px;
+}
+
+.panel-heading, .empty-row {
+	text-align: center;
+}
+
+#no-queues-message {
+	text-align:center;
+}

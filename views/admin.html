@@ -1,0 +1,105 @@
+<!-- Header -->
+<div class='header-container'>
+<nav class='navbar navbar-default' role='navigation'>
+  <div class='container-fluid'>
+    <div class='header'>
+      <div class='navbar-brand center'>
+        Office Hours
+      </div>
+    </div>
+    
+    <button type='button' class='btn btn-default navbar-btn pull-right' ng-click='logout()'>Logout</button>
+  </div>
+</nav> 
+</div>
+<!-- End of Header -->
+
+<div controller='AdminCtrl'>
+	<div class='row'>
+    <div class='col-sm-6'>
+      <form ng-submit='addStudent()' id='admin-form' class='form-horizontal' name='form' novalidate>
+        <div class='form-group'>
+          <label for='FullName' class=' col-sm-4 control-label'>Full Name:</label>
+          <div class='col-sm-8'>
+            <input type='text' class='form-control' ng-model='newEntry.fullName' required placeholder='Full Name' name='FullName'>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='UNI' class='col-sm-4 control-label'>UNI:</label>
+          <div class='col-sm-8'>
+            <input type='text' class='form-control' ng-model='newEntry.uni' ng-minlength='6' ng-maxlength='7' required placeholder='UNI' name='UNI'>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='StudentType' class='col-sm-4 control-label'>Student Type:</label>
+          <div class='col-sm-8'>
+            <select class='form-control' ng-model='newEntry.studentType' required name='StudentType'>
+              <option>IEOR Graduate</option>
+              <option>IEOR Undergraduate</option>
+              <option>CU Non-IEOR</option>
+              <option>Prospective</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='StaffName' class=' col-sm-4 control-label'>Staff Name:</label>
+          <div class='col-sm-8'>
+            <select class='form-control' ng-model='newEntry.staffName' required name='StaffName'>
+              <option ng-repeat='staffMember in staffList'>{{staffMember.StaffName}}</option>
+            </select>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='Reason' class=' col-sm-4 control-label'>Reason:</label>
+          <div class='col-sm-8'>
+            <select class='form-control' ng-model='newEntry.reason' required name='Reason'>
+              <option>Academic</option>
+              <option>Admissions</option>
+              <option>Career</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class='form-group'>
+          <label for='Comments' class='col-sm-4 control-label'>Comments:</label>
+          <div class='col-sm-8'>
+            <input type='text' class='form-control' ng-model='newEntry.comments' ng-maxlength='140' placeholder='Comments' name='Comments'>
+          </div>
+        </div>
+        <div class='form-group'>
+          <div class='col-sm-offset-6 col-sm-6'>
+            <button ng-disabled='form.$invalid' class='btn btn-primary'>Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class='col-sm-6'>
+      <form>
+        <div class='col-sm-offset-3 class-sm-9'>Staff members to display on TV.</div>
+        <div ng-repeat='staffMember in staffList' class='row'>
+          <div class='col-sm-6' style='text-align:right;'>{{staffMember.StaffName}}</div>
+          <div class='col-sm-6'><a href='' ng-click='changeStaffStatus(staffMember)'>{{staffMember.Active == 1 ? 'Hide' : 'Show'}}</a></div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+	<div ng-repeat='queues in rowsOfQueues' class='row'>
+    <div ng-repeat='queue in queues' class='col-md-3'>
+      <div class='panel panel-default'>
+        <div class='panel-heading'>
+          <h3 class='panel-title'>{{queue.StaffName}}</h3>
+        </div>
+        <div class='panel-body'>
+          <ul class='list-group'>
+            <li  class='empty-row list-group-item' ng-if='queue.Students.length == 0'> - </li>
+            <li class='list-group-item' ng-repeat='student in queue.Students track by $index'>
+            	<a href='' ng-click='removeStudent(student)'><span class='glyphicon glyphicon-ok red' aria-hidden='true'></span></a>{{student.StudentName}}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>  
+  </div>
+</div>
