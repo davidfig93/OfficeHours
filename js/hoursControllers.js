@@ -51,14 +51,14 @@ hoursControllers.controller('LoginCtrl', ['$scope', '$location', '$cookieStore',
 	$scope.attemptLogin = function() {
 		loginService.login($scope.login, function(loginService) {
 			$scope.statusMessage = loginService;
-			if(loginService.status == "success") {
+			if(loginService.status === 'success') {
 				$scope.displayErrorMessage = false;
 				$cookieStore.put('role', loginService.role);
 				$cookieStore.put('user', $scope.login.username);
 				$cookieStore.put('time', new Date());
-				if($cookieStore.get('role') == 'admin') {
+				if($cookieStore.get('role') === 'admin') {
 					$location.path('admin');	
-				} else if($cookieStore.get('role') == 'staff') {
+				} else if($cookieStore.get('role') === 'staff') {
 					$location.path('staff/queues');
 				}
 				
@@ -81,7 +81,7 @@ hoursControllers.controller('AdminCtrl', ['$scope', '$interval', '$location', '$
 	// Function to refresh queues
 	$scope.refreshQueues = function() {
 		queues.getAdminQueues(function(queues) {
-			if(queues.status == "fail") {
+			if(queues.status === 'fail') {
 				$location.path('login');
 			} else {
 				$scope.rowsOfQueues = chunkForRows(queues.queues, 4);
@@ -92,7 +92,7 @@ hoursControllers.controller('AdminCtrl', ['$scope', '$interval', '$location', '$
 	// Function refresh staff list
 	$scope.refreshStaffList = function() {
 		queues.getAllStaff(function(queues) {
-			if(queues.status == "fail") {
+			if(queues.status === 'fail') {
 				$location.path('login');
 			}
 			$scope.staffList = queues.staffList;
@@ -156,7 +156,7 @@ hoursControllers.controller('StaffCtrl', ['$scope', 'loginService', function($sc
 
 hoursControllers.controller('StaffHistoryCtrl', ['$scope', 'queues',  function($scope, queues) {
 	queues.getHistory(function(queues) {
-		if(queues.status == "fail") {
+		if(queues.status === 'fail') {
 			$location.path('login');
 		}
 		$scope.historyTable = queues.history;
@@ -167,7 +167,7 @@ hoursControllers.controller('StaffQueuesCtrl', ['$scope', '$interval', '$locatio
 	$scope.refreshQueues = function() {
 		queues.getAdminQueues(function(queues) {
 		
-			if(queues.status == "fail") {
+			if(queues.status === 'fail') {
 				$location.path('login');
 			} else {
 					$scope.rowsOfQueues = chunkForRows(queues.queues, 4);
